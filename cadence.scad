@@ -18,17 +18,15 @@ module paslice(radius, depth, slice=45, center=false, radius1=0) {
     if (slice <= 270)
       translate([ -radius, 0, cz ]) cube([ radius, radius, depth ]);
 
-    if (slice < 360) {
-
-      a = - floor(slice / 90) * 90;
-
-      opp = radius * tan(slice % 90);
-      rotate([ 0, 0, a ])
-        linear_extrude(depth)
-          polygon([
-            [ 0, 0 ], [ opp, radius ], [ radius, radius ], [ radius, 0 ] ]);
+    a = - floor(slice / 90) * 90;
+    s = 90 - slice % 90;
+    echo(s);
+    if (s != 90) {
+      opp = radius * tan(s);
+      rotate([ 0, 0, a ]) linear_extrude(depth)
+        polygon([ [ 0, 0 ], [ radius, 0 ], [ radius, opp ] ]);
     }
   }
 }
-paslice(100, 20, radius1=70, slice=360 - 14);
+paslice(100, 20, radius1=70, slice=359);
 
