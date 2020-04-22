@@ -30,5 +30,4 @@ module paslice(radius, depth, slice=45, center=false, radius1=0) {
     }
   }
 }
-paslice(100, 20, radius1=70, slice=46);
 
