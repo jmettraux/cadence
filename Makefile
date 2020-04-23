@@ -7,7 +7,10 @@ pkg/cadence_$(SHA).scad: pkg
 	echo "// https://github.com/jmettraux/cadence\n" >> pkg/cadence_$(SHA).scad
 	cat src/cadence.scad >> pkg/cadence_$(SHA).scad
 pkg:
-	mkdir -p pkg
+	mkdir -p pkg/
 
-#.PHONY: nada
+clean:
+	rm -fR pkg/
+
+.PHONY: clean
 
