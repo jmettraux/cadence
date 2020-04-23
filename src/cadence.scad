@@ -7,7 +7,7 @@ function _sl(list, from=0, to) =
 
 // pineapple slice
 //
-module paslice(radius, depth, slice=45, center=false, radius1=0) {
+module paslice(radius, depth, slice=45, radius1=0) {
 
   assert(slice >= 0, "slice must be >= 0 degrees");
   assert(slice <= 360, "slice must be <= 360 degrees");
@@ -16,10 +16,9 @@ module paslice(radius, depth, slice=45, center=false, radius1=0) {
 
   if (slice > 0) difference() {
 
-    cylinder(depth, r=radius, center=center);
+    cylinder(depth, r=radius);
 
-    translate([ 0, 0, -0.1 ])
-      cylinder(depth * 1.1, r=radius1, center=center);
+    translate([ 0, 0, -0.1 ]) cylinder(depth * 1.1, r=radius1);
 
     if (slice != 360) {
 
