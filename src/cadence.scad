@@ -44,3 +44,20 @@ module paslice(radius, depth, slice=45, radius1=0) {
   }
 }
 
+
+// dome with optional trunk_height
+//
+module dome(radius=-1, diameter=-1, trunk_height=0) {
+
+  r = radius; if (r < 0) { r = diameter / 2; }
+  th = trunk_height;
+
+  translate([ 0, 0, th ])
+    difference() {
+      sphere(r=r);
+      translate([ 0, 0, -r ]) cube(2 * r, center=true);
+    }
+  translate([ 0, 0, trunk_height / 2 ])
+    cylinder(r=r, h=trunk_height, center=true);
+}
+
