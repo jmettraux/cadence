@@ -11,7 +11,7 @@ slices = [
   201, 225, 251, 270, 281, 315, 331, 360, 0,
   0, 0, -15, 390 ];
 
-for (i = [ 0 : len(slices) - 1]) {
+for (i = [ 0 : len(slices) - 1 ]) {
   x = (i % s) * d;
   y = - (floor(i / s) * d);
   translate([ x, y, 0 ])
