@@ -13,12 +13,11 @@ function _normalize_angle(a) =
 module paslice(radius, depth, slice=45, radius1=0) {
 
   s = _normalize_angle(slice);
-
   r = radius;
 
   if (s > 0) difference() {
 
-    cylinder(depth, r=radius);
+    cylinder(depth, r=r);
 
     translate([ 0, 0, -0.1 ]) cylinder(depth * 1.1, r=radius1);
 
@@ -49,7 +48,7 @@ module paslice(radius, depth, slice=45, radius1=0) {
 //
 module dome(radius=-1, diameter=-1, trunk_height=0) {
 
-  r = radius; if (r < 0) { r = diameter / 2; }
+  r = radius < 0 ? diameter / 2 : radius;
   th = trunk_height;
 
   translate([ 0, 0, th ])
@@ -57,7 +56,7 @@ module dome(radius=-1, diameter=-1, trunk_height=0) {
       sphere(r=r);
       translate([ 0, 0, -r ]) cube(2 * r, center=true);
     }
-  translate([ 0, 0, trunk_height / 2 ])
-    cylinder(r=r, h=trunk_height, center=true);
+  translate([ 0, 0, th / 2 ])
+    cylinder(r=r, h=th, center=true);
 }
 
