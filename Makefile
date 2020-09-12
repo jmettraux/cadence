@@ -1,4 +1,6 @@
 
+# run me with gmake, yes, GNU Make...
+
 #SHA:=$(shell git log -1 --format="%H")
 SHA:=$(shell git log -1 --format="%h")
 
@@ -8,6 +10,8 @@ pkg/cadence_$(SHA).scad: pkg
 	cat src/cadence.scad >> pkg/cadence_$(SHA).scad
 pkg:
 	mkdir -p pkg/
+sha:
+	echo $(SHA)
 
 clean:
 	rm -fR pkg/
