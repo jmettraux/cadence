@@ -1,4 +1,5 @@
 
+
 // sublist
 //
 function _sl(list, from=0, to) =
@@ -7,6 +8,15 @@ function _sl(list, from=0, to) =
 
 function _normalize_angle(a) =
   ((a >= 0 && a <= 360) ? a : _normalize_angle(a + (a < 0 ? 360 : -360)));
+
+
+//
+// dictionary functions
+
+function _get(dict, key) = search(key, dict)[0];
+function _del(dict, key) = [ for (kv = dict) if (kv[0] != key) kv ];
+function _put(dict, key, value) = concat(_del(dict, key), [ [ key, value ] ]);
+
 
 // pineapple slice
 //
