@@ -25,7 +25,12 @@ function _put(dict, key, value) =
 // list functions
 
 function _idx(list, index, default=undef) =
-  let (r = list[index]) r == undef ? default : r;
+  let (
+    l = len(list),
+    i = index < 0 ? l + index : index,
+    r = list[i]
+  )
+    r == undef ? default : r;
 
   // sublist
   //
