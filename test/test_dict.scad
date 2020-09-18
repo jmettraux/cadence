@@ -17,6 +17,13 @@ assert(
   "_get NG");
 
 assert(
+  _get(di, "z", 1) == 1,
+  "_get NG");
+assert(
+  _get(di, "z", undef) == undef,
+  "_get NG");
+
+assert(
   _del(di, "c") == [ [ "a", 0 ], [ "b", 1 ] ],
   "_del NG");
 assert(
