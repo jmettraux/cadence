@@ -32,11 +32,13 @@ function _idx(list, index, default=undef) =
 function _slist(list, from=0, to) =
   let(
     li = len(list) - 1,
-    end = (to == undef ? li : to)
+    end = (to == undef ? li : to),
+    a = from < 0 ? li + 1 + from : from,
+    z = end < 0 ? li + 1 + end : end
   )
-    from > li ?
+    a > li ?
       [] :
-      [ for ( i = [from:end]) list[i] ];
+      [ for (i = [a:z]) list[i] ];
 
 //
 // point functions
