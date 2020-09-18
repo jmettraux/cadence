@@ -1,4 +1,9 @@
 
+// as of 2019.05, OpenSCAD understands
+// is_num, is_list, is_string, and, is_bool
+//
+// is_function is coming, but looks tricky
+
 
 // sublist
 //
