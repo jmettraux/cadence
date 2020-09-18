@@ -5,11 +5,6 @@
 // is_function is coming, but looks tricky
 
 
-// sublist
-//
-function _sl(list, from=0, to) =
-  let(end = (to == undef ? len(list) - 1 : to))
-  [ for ( i = [from:end]) list[i] ];
 
 function _normalize_angle(a) =
   ((a >= 0 && a <= 360) ? a : _normalize_angle(a + (a < 0 ? 360 : -360)));
@@ -31,6 +26,17 @@ function _put(dict, key, value) =
 
 function _idx(list, index, default=undef) =
   let (r = list[index]) r == undef ? default : r;
+
+  // sublist
+  //
+function _slist(list, from=0, to) =
+  let(
+    li = len(list) - 1,
+    end = (to == undef ? li : to)
+  )
+    from > li ?
+      [] :
+      [ for ( i = [from:end]) list[i] ];
 
 //
 // point functions
@@ -98,11 +104,16 @@ module paslice(radius, depth, slice=45, radius1=0) {
       ty = r / t;
 
       translate([ 0, 0, -0.1 ]) linear_extrude(depth + 0.2)
-        if (s <= 45) polygon(concat(pas, [ [ tx, r ] ], pbs));
-        else if (s <= 135) polygon(concat(pas, [ [ r, ty ] ], _sl(pbs, 2)));
-        else if (s <= 225) polygon(concat(pas, [ [ -tx, -r ] ], _sl(pbs, 4)));
-        else if (s <= 315) polygon(concat(pas, [ [ -r, -ty ] ], _sl(pbs, 6)));
-        else if (s < 360) polygon(concat(pas, [ [ tx, r ] ]));
+        if (s <= 45)
+          polygon(concat(pas, [ [ tx, r ] ], pbs));
+        else if (s <= 135)
+          polygon(concat(pas, [ [ r, ty ] ], _slist(pbs, 2)));
+        else if (s <= 225)
+          polygon(concat(pas, [ [ -tx, -r ] ], _slist(pbs, 4)));
+        else if (s <= 315)
+          polygon(concat(pas, [ [ -r, -ty ] ], _slist(pbs, 6)));
+        else if (s < 360)
+          polygon(concat(pas, [ [ tx, r ] ]));
     }
   }
 }
