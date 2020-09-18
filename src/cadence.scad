@@ -27,6 +27,12 @@ function _put(dict, key, value) =
 
 
 //
+// list functions
+
+function _idx(list, index, default=undef) =
+  let (r = list[index]) r == undef ? default : r;
+
+//
 // point functions
 
   // Accept a single angle instead of [ angle0, angle1 ]
