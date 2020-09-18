@@ -38,11 +38,12 @@ function _slist(list, from=0, to) =
   let(
     li = len(list) - 1,
     end = (to == undef ? li : to),
-    a = from < 0 ? li + 1 + from : from,
+    a0 = from < 0 ? li + 1 + from : from,
+    a = a0 < 0 ? 0 : a0,
     z = end < 0 ? li + 1 + end : end
   )
-    a > li ?
-      [] :
+    a > li ? [] :
+    z < a ? [] :
       [ for (i = [a:z]) list[i] ];
 
 //

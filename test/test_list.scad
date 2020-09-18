@@ -18,7 +18,7 @@ assert(_idx(l, 9, "neuf") == "neuf");
 
 assert(_idx(l, -1) == undef);
 assert(_idx(l, -2) == 6);
-//assert(_idx(l, -10) == undef);
+assert(_idx(l, -10) == undef);
 
 assert(_slist(l, 4) == [ 4, "five", 6, undef ]);
 assert(_slist(l, 7) == [ undef ]);
@@ -33,4 +33,8 @@ assert(_slist(l, -4) == [ 4, "five", 6, undef ]);
 
 assert(_slist(l, -4, -2) == [ 4, "five", 6 ]);
 assert(_slist(l, -4, -3) == [ 4, "five" ]);
+
+assert(_slist(l, -10) == l);
+assert(_slist(l, -4, -10) == []);
+assert(_slist(l, 10, 11) == []);
 
