@@ -21,3 +21,17 @@ assert(p2.z == 0);
   //
   // :-(
 
+
+p3 = _midpoint([ 0, 0, 0 ], [ 4, 4, 4 ]);
+echo([ "p3", p3 ]);
+
+//function _to_point(length, angles, sp=[ 0, 0, 0 ]) =
+p4 = _to_point(4, [ 45, 20 ], [ 0, 0, 0 ]);
+
+translate([ 0, 0, 0 ]) sphere(d=0.5);
+translate(p4) sphere(d=0.5);
+
+p5 = _midpoint([ 0, 0, 0 ], p4, 0.5);
+color("red") translate(p5) sphere(d=0.5);
+
+
