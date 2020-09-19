@@ -13,10 +13,25 @@ function _normalize_angle(a) =
 //
 // dictionary functions
 
+function _aaget(dict, key, default, off) =
+  let (kv = dict[off])
+    kv == undef ? default :
+    kv[0] == key ? kv[1] :
+      _aaget(dict, key, default, off + 1);
+
+function _asget(dict, key, default, off) =
+  dict[off] == undef ? default :
+  dict[off] == key ? dict[off + 1] :
+    _asget(dict, key, default, off + 2);
+
 function _get(dict, key, default=undef) =
-  let (r = search(key, dict)[0]) r == undef ? default : r;
+  is_string(dict[0]) ?
+    _asget(dict, key, default, 0) :
+    _aaget(dict, key, default, 0);
+
 function _del(dict, key) =
   [ for (kv = dict) if (kv[0] != key) kv ];
+
 function _put(dict, key, value) =
   concat(_del(dict, key), [ [ key, value ] ]);
 
