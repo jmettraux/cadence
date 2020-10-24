@@ -64,6 +64,7 @@ function _slist(list, from=0, to) =
 // point functions
 
   // Accept a single angle instead of [ angle0, angle1 ]
+  // 'sp' is the start point
   //
 function _to_point(length, angles, sp=[ 0, 0, 0 ]) =
   let(
@@ -80,9 +81,10 @@ function _to_spherical(point) =
   let(
     l = norm(point),
     ele = asin(point.z / l),
-    dir = atan(point.y / point.x)
+    dir = atan2(point.y, point.x)
   )
     [ l, [ ele, dir - 90 ] ];
+
 
 function _midpoint(p0, p1, ratio=0.5) =
   let(
