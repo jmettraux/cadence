@@ -120,8 +120,26 @@ function _bezier_points(control_points, sample_count) =
   [ for (t = [ 0 : 1.0 / sample_count : 1 ])
     _bezier_point(control_points, t, 0, [ 0, 0 ]) ];
 
+
 //
 // modules
+
+module polypoints(points) {
+
+  for (p = points) { translate(p) children(0); }
+}
+
+module polyhulls(points) {
+
+  for (i = [ 0 : len(points) - 2 ]) {
+
+    hull() {
+      translate(points[i]) children(0);
+      translate(points[i + 1]) children(0);
+    }
+  }
+}
+
 
 // pineapple slice
 //

@@ -8,7 +8,7 @@
 use <../src/cadence.scad>;
 
 
-$fn=60;
+$fn = 60;
 
 p0 = [ 1, 1 ];
 p1 = [ 25, -3 ];
