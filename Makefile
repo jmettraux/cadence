@@ -5,9 +5,10 @@
 SHA:=$(shell git log -1 --format="%h")
 
 pkg/cadence_$(SHA).scad: pkg
-	echo "\n// cadence_$(SHA).scad" > pkg/cadence_$(SHA).scad
+	echo "\n// cadence $(SHA).scad" > pkg/cadence_$(SHA).scad
 	echo "// https://github.com/jmettraux/cadence.scad\n" >> pkg/cadence_$(SHA).scad
 	cat src/cadence.scad >> pkg/cadence_$(SHA).scad
+	cp pkg/cadence_$(SHA).scad pkg/cadence.scad
 pkg:
 	mkdir -p pkg/
 sha:
