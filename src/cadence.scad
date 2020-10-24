@@ -126,7 +126,9 @@ function _bezier_points(control_points, sample_count) =
 
 module polypoints(points) {
 
-  for (p = points) { translate(p) children(0); }
+  for (i = [ 0 : len(points) - 1 ]) {
+    translate(points[i]) children(i % $children);
+  }
 }
 
 module polyhulls(points) {
@@ -134,8 +136,8 @@ module polyhulls(points) {
   for (i = [ 0 : len(points) - 2 ]) {
 
     hull() {
-      translate(points[i]) children(0);
-      translate(points[i + 1]) children(0);
+      translate(points[i]) children(i % $children);
+      translate(points[i + 1]) children((i + 1) % $children);
     }
   }
 }
