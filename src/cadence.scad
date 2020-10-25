@@ -60,6 +60,9 @@ function _slist(list, from=0, to) =
     z < a ? [] :
       [ for (i = [a:z]) list[i] ];
 
+function _reverse(list) =
+  [ for (i = [ len(list) - 1 : -1 : 0 ]) list[i] ];
+
 //
 // point functions
 
