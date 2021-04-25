@@ -121,7 +121,7 @@ function _bezier_point(points, t, i, c) =
 
 function _bezier_points(control_points, sample_count) =
   [ for (t = [ 0 : 1.0 / sample_count : 1 ])
-    _bezier_point(control_points, t, 0, [ 0, 0 ]) ];
+    _bezier_point(control_points, t, 0, [ 0, 0, 0 ]) ];
 
 
 //

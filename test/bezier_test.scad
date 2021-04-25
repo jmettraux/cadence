@@ -1,6 +1,6 @@
 
 //
-// test_bezier.scad
+// bezier_test.scad
 //
 // Sat Oct 24 15:34:32 JST 2020
 //

@@ -1,6 +1,7 @@
 
 ## cadence changelog
 
+* Unlock _bezier_points 3D
 * Add _idx, _slist list functions
 * Add point functions
 * Add _get, _put, _del associative array functions
