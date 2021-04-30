@@ -48,7 +48,7 @@ assert(_get(di2, "to left elbow", 1) == [ 0, 45 ]);
 
 
 //
-// assoc
+// _assoc
 
 a0 = [ [ "a", 0, 1, 2 ], [ "b", 3, 4 ], [ "a", 5, 6 ] ];
 
@@ -56,4 +56,21 @@ assert(_assoc(a0, "a") == [ "a", 0, 1, 2 ]);
 assert(_assoc(a0, "b") == [ "b", 3, 4 ]);
 assert(_assoc(a0, "c") == undef);
 assert(_assoc(a0, "c", "nada") == "nada");
+
+//
+// _app
+
+assert(_put(a0, "a", 1) == [ [ "b", 3, 4 ], [ "a", 1 ] ]);
+assert(_put(a0, "a", [ 1, 2 ]) == [ [ "b", 3, 4 ], [ "a", [ 1, 2 ] ] ]);
+
+assert(_app(a0, [ "a", -1 ]) ==
+  [ [ "b", 3, 4 ], [ "a", -1 ] ]);
+assert(_app(a0, [ "c", -1 ]) ==
+  [ [ "a", 0, 1, 2 ], [ "b", 3, 4 ], [ "a", 5, 6 ], [ "c", -1 ] ]);
+
+
+//
+// SUCCESS, green ball!
+
+color("green") sphere(7);
 
