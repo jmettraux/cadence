@@ -35,6 +35,12 @@ function _del(dict, key) =
 function _put(dict, key, value) =
   concat(_del(dict, key), [ [ key, value ] ]);
 
+function _assoc(arr, key, default, off=0) =
+  let (a = arr[off])
+    a == undef ? default :
+    a[0] == key ? a :
+      _assoc(arr, key, default, off + 1);
+
 
 //
 // list functions
