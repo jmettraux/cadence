@@ -86,6 +86,15 @@ function _sstr(s, from=0, length=undef, r="") =
   (s0 == undef || l < 1) ? r :
   str(r, s[i], _sstr(s, i + 1, l - 1));
 
+function _sindex(s, s1, i=0) =
+  let(
+    l = len(s1),
+    s0 = _sstr(s, i, l)
+  )
+  len(s0) < l ? undef :
+  s0 == s1 ? i :
+  _sindex(s, s1, i + 1);
+
 
 //
 // point functions
