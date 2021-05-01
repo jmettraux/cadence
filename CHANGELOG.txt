@@ -1,6 +1,7 @@
 
 ## CHANGELOG.txt
 
+* Add _sstr(s, from=0, length=undef)
 * Add _app(arr, entry) to complement _assoc()
 * Add _assoc(arr, key, default, off=0)
 * Unlock _bezier_points 3D

@@ -38,3 +38,9 @@ assert(_slist(l, -10) == l);
 assert(_slist(l, -4, -10) == []);
 assert(_slist(l, 10, 11) == []);
 
+
+//
+// SUCCESS, green ball!
+
+color("green") sphere(7);
+

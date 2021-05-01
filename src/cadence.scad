@@ -73,6 +73,20 @@ function _slist(list, from=0, to) =
 function _reverse(list) =
   [ for (i = [ len(list) - 1 : -1 : 0 ]) list[i] ];
 
+
+//
+// string functions
+
+function _sstr(s, from=0, length=undef, r="") =
+  let(
+    i = from < 0 ? len(s) + from : from,
+    l = length == undef ? len(s) : length,
+    s0 = s[i]
+  )
+  (s0 == undef || l < 1) ? r :
+  str(r, s[i], _sstr(s, i + 1, l - 1));
+
+
 //
 // point functions
 
