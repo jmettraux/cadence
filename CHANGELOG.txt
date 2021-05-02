@@ -1,6 +1,7 @@
 
 ## CHANGELOG.txt
 
+* Add _to_spherical_xyz() and _to_ele_dir()
 * Add _sindex(s, s1) returns undef or the index of s1 in s
 * Add _sstr(s, from=0, length=undef)
 * Add _app(arr, entry) to complement _assoc()

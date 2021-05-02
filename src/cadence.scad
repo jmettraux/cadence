@@ -117,9 +117,24 @@ function _to_spherical(point) =
   let(
     l = norm(point),
     ele = asin(point.z / l),
-    dir = atan2(point.y, point.x)
+    dir = atan2(point.y, point.x) - 90
   )
-    [ l, [ ele, dir - 90 ] ];
+    [ l, [ ele, dir ] ];
+
+function _to_spherical_xyz(point) =
+  let(
+    l = norm(point),
+    ele = asin(point.z / l),
+    dir = atan2(point.y, point.x) - 90
+  )
+    [ l, ele, dir ];
+
+function _to_ele_dir(point) =
+  let(
+    ele = asin(point.z / l),
+    dir = atan2(point.y, point.x) - 90
+  )
+    [ ele, dir ];
 
 
 function _midpoint(p0, p1, ratio=0.5) =
