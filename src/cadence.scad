@@ -38,9 +38,9 @@ function _put(dict, key, value) =
 
 function _assoc(arr, key, default, off=0) =
   let (a = arr[off])
-    a == undef ? default :
-    a[0] == key ? a :
-      _assoc(arr, key, default, off + 1);
+  a == undef ? default :
+  a[0] == key ? a :
+  _assoc(arr, key, default, off + 1);
 
 function _app(arr, entry) =
   concat(_del(arr, entry[0]), [ entry ]);
@@ -54,7 +54,7 @@ function _idx(list, index, default=undef) =
     i = index < 0 ? len(list) + index : index,
     r = list[i]
   )
-    r == undef ? default : r;
+  r == undef ? default : r;
 
   // sublist
   //

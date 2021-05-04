@@ -56,6 +56,17 @@ assert(_assoc(a0, "a") == [ "a", 0, 1, 2 ]);
 assert(_assoc(a0, "b") == [ "b", 3, 4 ]);
 assert(_assoc(a0, "c") == undef);
 assert(_assoc(a0, "c", "nada") == "nada");
+assert(_assoc(a0, "c", undef) == undef);
+
+a1 = [];
+
+assert(_assoc(a1, "c") == undef);
+assert(_assoc(a1, "c", 1) == 1);
+assert(_assoc(a1, "c", undef) == undef);
+
+assert(_assoc(a1, undef) == undef);
+assert(_assoc(a1, undef, undef) == undef);
+
 
 //
 // _app
