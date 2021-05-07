@@ -100,6 +100,12 @@ function _sindex(s, s1, i=0) =
   _sindex(s, s1, i + 1);
 
 
+function _ends_with(l, l1)=
+  is_string(l) ? (_sstr(l, len(l) - len(l1)) == l1) :
+  is_list(l) ? (_slist(l, len(l) - len(l1)) == l1) :
+  false;
+
+
 //
 // point functions
 
