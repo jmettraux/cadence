@@ -10,6 +10,10 @@ function _normalize_angle(a) =
   ((a >= 0 && a <= 360) ? a : _normalize_angle(a + (a < 0 ? 360 : -360)));
 
 
+function _is_point(p) =
+  is_list(p) && len(p) == 3 && is_num(p.x) && is_num(p.y) && is_num(p.z);
+
+
 //
 // dictionary functions
 
