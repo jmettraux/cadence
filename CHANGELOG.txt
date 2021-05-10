@@ -1,6 +1,7 @@
 
 ## CHANGELOG.txt
 
+* Add rotate_point(point, rotation)
 * Add _ends_with(l, l1) or _ends_with(s, s1)
 * Add _is_point(p)
 * Add _to_spherical_xyz() and _to_ele_dir()
