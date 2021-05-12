@@ -228,7 +228,7 @@ module paslice(radius, depth, slice=45, radius1=0) {
 
     cylinder(depth, r=r);
 
-    translate([ 0, 0, -0.1 ]) cylinder(depth * 1.1, r=radius1);
+    translate([ 0, 0, -0.1 * depth ]) cylinder(depth * 1.2, r=radius1);
 
     if (s != 360) {
 
@@ -242,7 +242,7 @@ module paslice(radius, depth, slice=45, radius1=0) {
       tx = t * r;
       ty = r / t;
 
-      translate([ 0, 0, -0.1 ]) linear_extrude(depth + 0.2)
+      translate([ 0, 0, -0.1 * depth ]) linear_extrude(depth * 1.2)
         if (s <= 45)
           polygon(concat(pas, [ [ tx, r ] ], pbs));
         else if (s <= 135)
